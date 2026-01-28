@@ -1,0 +1,177 @@
+.login-pf body {
+    background: #F0F2F5 !important;  /* Définir l'arrière-plan sur blanc */
+    height: 100%;
+}
+
+.card-pf {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 10 !important;
+    padding: 90 !important;
+    font-family: inherit !important;
+    height: 100%;
+    width: 80.66% !important; /* 2/3 de l'écran */
+    position: absolute; /* Positionnement absolu */
+    right: 10%; /* Ajouter un espace de 10px à droite */
+    top: 50%; /* Centrer verticalement */
+    transform: translateY(-50%); /* Ajuster pour centrer verticalement */
+    background: #E5E8EC !important;
+
+}
+
+.card {
+    display: flex;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    top: 10%;
+    height: 85%;
+    overflow: hidden;
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 10px 0 0 10px; 
+    filter: blur(0.5px); /* Blur effect */
+    z-index: 1; /* Place it below the second image */
+}
+
+#back {
+    position: absolute;
+    top: 10%; /* Adjust this to position it closer to the top */
+    margin-bottom: 10%;
+    left: 0%; /* Move to the left side */
+    width: 50%;
+    height: 80%;
+    z-index: 2; /* Make sure it is above the blurred background */
+}
+
+#logo {
+    position: absolute;
+    top: 5%; /* Move logo closer to the top */
+    right: 28%; /* Move logo closer to the left */
+    height: auto; /* Adjust based on your preferred size */
+}
+
+#title {
+    color: #334C68;
+    font-weight: bold;
+    position: absolute;
+    right: 10%; /* Align title to the left */
+    top: 21%; /* Position it below the logo with more space */
+    font-size: 24px;
+    font-family: inter;
+    margin-bottom: 20px;
+}
+
+#kc-form {
+    margin: 0 auto;
+    padding: 40px; /* Add padding to give some space around the form */
+    position: absolute;
+    left: 52%; /* Align to the right side */
+    top: 28%; /* Move form down slightly to provide space for the logo and title */
+}
+
+#username{
+    height: 45px;
+    width: 100%; /* Make inputs take up 130% of the form's width */
+    padding: 15px; /* Make inputs larger */
+    font-size: 16px; /* Increase font size */
+    margin-bottom: 20px; /* Add space between inputs */
+    box-sizing: border-box; /* Ensures padding doesn't affect the width */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+
+#kc-form-buttons {
+    width: 100%; /* Ensure button takes up full width */
+    
+}
+
+#kc-login {
+    background-color: #334C68;
+    width: 100%;
+    font-size: 18px; /* Increase font size for the button */
+    padding: 15px; /* Make button larger */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    }
+
+#kc-login:disabled {
+background-color: #ccc;
+}
+
+#kc-login:hover:enabled {
+background-color: #2b3e50;
+}
+.MotOublié {
+    margin-bottom: 0; /* Reset any margin to align properly */
+    justify-content: space-between;
+    align-self: center; /* Vertically center the "Mot de passe oublié" link */
+    
+}
+
+.pass {
+    display: flex;
+    align-items: center;                /* Centrer verticalement */
+    position: relative;
+    width: 100%;
+}
+
+/* Style pour l'input du mot de passe */
+#password {
+    height: 45px;
+    padding: 15px 15px 15px 15px;       /* Ajout de padding à gauche et à droite */
+    font-size: 16px;
+    width: 100%;
+    padding-right: 40px;                 /* Espace à droite pour l'icône */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    box-sizing: border-box;              /* Inclure padding dans la largeur totale */
+}
+
+/* Style pour l'icône */
+.eye {
+    top: 5px;
+    position: absolute;
+    right: 15px;                        /* Espacement à droite de l'input */
+    font-size: 18px;
+    color: gray;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Ajouter un style pour le conteneur qui englobe l'input et l'icône */
+.pass {
+    position: relative;
+    width: 100%;
+}
+
+.kc-form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kc-form-options .checkbox {
+    margin-right: 130px; 
+}
