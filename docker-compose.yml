@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:16
+    container_name: keycloak-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: ${KC_DB_PASSWORD}
+    volumes:
+      - kc_pgdata:/var/lib/postgresql/data
+
+  keycloak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: keycloak
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      # Bootstrap admin (obligatoire en container)
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KC_ADMIN_USER}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASS}
+
+      # DB (le mot de passe est injecté via env pour pouvoir faire ${KC_DB_PASSWORD} dans keycloak.conf)
+      KC_DB_PASSWORD: ${KC_DB_PASSWORD}
+
+      # (optionnel) si tu veux override sans toucher au keycloak.conf
+      # KC_HOSTNAME: keycloak.example.com
+
+    ports:
+      - "8443:8443"
+      - "9000:9000"   # health/metrics/management (optionnel mais pratique)
+
+    volumes:
+      # RHEL/SELinux: le :Z est important si SELinux enforcing
+      - /opt/keycloak/conf/keycloak.conf:/opt/keycloak/conf/keycloak.conf:ro,Z
+      - /opt/keycloak/themes:/opt/keycloak/themes:ro,Z
+      - /opt/keycloak/certs:/opt/keycloak/conf/certs:ro,Z
+
+volumes:
+  kc_pgdata:
+
